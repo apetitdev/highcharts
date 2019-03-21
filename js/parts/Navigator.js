@@ -2053,15 +2053,21 @@ Navigator.prototype = {
      *
      * @return {number} Minimum from all series
      */
+    /* eslint-disable */
     getBaseSeriesMin: function (currentSeriesMin) {
-        return this.baseSeries.reduce(
-            function (min, series) {
-                // (#10193)
-                return Math.min(min, series.xData ? series.xData[0] : min);
-            },
-            currentSeriesMin
-        );
+        try {
+            return this.baseSeries.reduce(
+                function (min, series) {
+                    // (#10193)
+                      return Math.min(min, series.xData ? series.xData[0] : min);
+                },
+                currentSeriesMin
+              );
+        } catch {
+            return;
+        }
     },
+    /* eslint-enable */
 
     /**
      * Set the navigator x axis extremes to reflect the total. The navigator

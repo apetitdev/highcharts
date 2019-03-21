@@ -1,4 +1,3 @@
-
 QUnit.test('Soft series update by data module update', function (assert) {
 
     var csv1 = 'Name,Initial name\nApples,1\nPears,2\nBananas,3';
@@ -75,7 +74,7 @@ QUnit.test(
 
         assert.strictEqual(
             text.textContent,
-            '15:00',
+            '22:00',
             'Initial time should be set (Timezone: UTC ' +
             Math.round((new Date()).getTimezoneOffset() / -60) + ')'
         );
